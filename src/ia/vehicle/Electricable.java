@@ -1,5 +1,7 @@
 package ia.vehicle;
 
+import ia.energy.Electricity;
+
 public interface Electricable {
-	public void charge(int quantity);
+	public void charge(Electricity electricity, int quantity);
 }
