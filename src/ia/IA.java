@@ -1,7 +1,9 @@
 package ia;
 
+import java.awt.Point;
 import java.util.Collection;
 
+import ia.infrastructure.Airport;
 import ia.infrastructure.Land;
 import ia.infrastructure.Station;
 import ia.vehicle.Plane;
@@ -12,12 +14,16 @@ public class IA {
 
 	public static void main(String[] args) {
 		Repository repo = Repository.getInstance();
-		Land myLand = new Land();
+		Point origin = new Point(0, 0);
+		
+		double length = 12;
+		double height = 10;
+		
+		Land myLand = new Land(origin, length, height);
 		
 		Station s = new Station();
 		Station s1 = new Station();
 		myLand.addStations(s, s1);
-		
 		
 //		for (int i = 0; i < 15; i ++) {
 //			Vehicle v = repo.generate();
@@ -29,6 +35,12 @@ public class IA {
 //		}
 		
 
+	}
+	
+	
+	private static Collection<Airport> generateAirports(Land land) {
+		
+		return null;
 	}
 
 }
