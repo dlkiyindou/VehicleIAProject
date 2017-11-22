@@ -1,5 +1,5 @@
 package ia.infrastructure;
 
-public class Station {
+public class Station extends InfraStructure {
 
 }

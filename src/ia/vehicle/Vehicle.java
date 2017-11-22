@@ -1,9 +1,22 @@
 package ia.vehicle;
 
-public abstract class Vehicle {
+import java.awt.Point;
+
+import ia.Localizable;
+
+public abstract class Vehicle implements Localizable{
 	private double x;
 	private double y;
+	private Point position;
 	
+	public Point getPosition() {
+		return position;
+	}
+
+	public void setPosition(Point position) {
+		this.position = position;
+	}
+
 	/**
 	 * 
 	 * @param x

@@ -1,20 +1,18 @@
 package ia.infrastructure;
 
 import java.awt.Point;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
-
-import javax.print.attribute.SetOfIntegerSyntax;
-
 import java.util.List;
+import java.util.Set;
 
 public class Land {
 	private Point origin;
 	private Double length;
 	private Double height;
+	private Point p1, p2, p3;
+	
 	// Liste des gares
 	private Set<Station> listStation = new HashSet<Station>();
 	// Liste des stations services
@@ -22,13 +20,14 @@ public class Land {
 	// Liste des aéroports
 	private Set<Airport> listAirport = new HashSet<Airport>();
 	
-	public Land() {
-	}
+	public Land() {}
 	
 	public Land(Point origin, Double length, Double height) {
 		this.origin = origin;
 		this.length = length;
 		this.height = height;
+		
+		generatePoint();
 	}
 	
 	
@@ -46,6 +45,7 @@ public class Land {
 	
 	public void setLength(Double length) {
 		this.length = length;
+		generatePoint();
 	}
 	
 	public Double getHeight() {
@@ -54,6 +54,7 @@ public class Land {
 	
 	public void setHeight(Double height) {
 		this.height = height;
+		generatePoint();
 	}
 
 	public Set<Station> getListStation() {
@@ -107,6 +108,33 @@ public class Land {
 		addAirports(myList);
 	}
 	
+	private void generatePoint() {
+		p1 = new Point();
+		p1.setLocation(this.origin.getX() + this.length, this.origin.getY());
+		
+		p2 = new Point();
+		p2.setLocation(this.origin.getX() + this.length, this.origin.getY() + this.height);
+		
+		p3 = new Point();
+		p3.setLocation(this.origin.getX(), this.origin.getY() + this.height);
+	}
 	
 	
+	public double getXMax() {
+		return p2.getX();
+	}
+	
+	
+	public double getYMax() {
+		return p2.getY();
+	}
+	
+	public double getXMin() {
+		return origin.getX();
+	}
+	
+	
+	public double getYMin() {
+		return origin.getY();
+	}
 }
