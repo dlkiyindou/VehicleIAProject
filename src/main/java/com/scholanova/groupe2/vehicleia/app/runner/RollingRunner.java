@@ -1,5 +1,5 @@
 package com.scholanova.groupe2.vehicleia.app.runner;
 
-public abstract class RollingRunner {
+public abstract class RollingRunner extends VehicleRunner {
 
 }

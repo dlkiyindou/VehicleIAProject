@@ -1,5 +1,5 @@
 package com.scholanova.groupe2.vehicleia.app.vehicle;
 
-public class Car {
+public class Car extends RollingVehicle implements Fuelable {
 
 }

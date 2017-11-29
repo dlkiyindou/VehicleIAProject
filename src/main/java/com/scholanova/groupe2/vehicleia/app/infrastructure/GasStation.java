@@ -1,5 +1,5 @@
 package com.scholanova.groupe2.vehicleia.app.infrastructure;
 
-public class GasStation {
+public class GasStation extends ReplenishmentStructure{
 
 }
