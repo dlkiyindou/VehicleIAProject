@@ -14,4 +14,12 @@ public abstract class InfraStructure implements Localizable {
 	public void setPosition(Point position) {
 		this.position = position;
 	}
+	
+	public InfraStructure() {
+		super();
+	}
+	
+	public InfraStructure(Point position) {
+		setPosition(position);
+	}
 }

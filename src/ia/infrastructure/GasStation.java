@@ -1,5 +1,13 @@
 package ia.infrastructure;
 
-public class GasStation extends InfraStructure  {
+import java.awt.Point;
 
+public class GasStation extends InfraStructure  {
+	public GasStation() {
+		super();
+	}
+	
+	public GasStation(Point position) {
+		setPosition(position);
+	}
 }

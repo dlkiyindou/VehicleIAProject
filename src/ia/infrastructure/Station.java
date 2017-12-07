@@ -1,5 +1,13 @@
 package ia.infrastructure;
 
-public class Station extends InfraStructure {
+import java.awt.Point;
 
+public class Station extends InfraStructure {
+	public Station() {
+		super();
+	}
+	
+	public Station(Point position) {
+		setPosition(position);
+	}
 }
