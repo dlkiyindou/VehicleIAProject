@@ -40,6 +40,16 @@ public class IA {
 				2)
 			);
 
+		Generator<GasStation> GasStationGenerator = new Generator<GasStation>();
+		myLand.addGasStation(
+			GasStationGenerator.generate(
+				new GasStation(), 
+				myLand.getXMin(),
+				myLand.getYMin(),
+				myLand.getXMax(),
+				myLand.getYMax(),
+				2)
+			);
 	}
 	
 
