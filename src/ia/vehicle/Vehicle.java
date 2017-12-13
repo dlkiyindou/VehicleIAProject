@@ -53,4 +53,8 @@ public abstract class Vehicle implements Localizable{
 	public void setY(double y) {
 		this.y = y;
 	}
+	
+	private class Runner extends Thread {
+		
+	}
 }

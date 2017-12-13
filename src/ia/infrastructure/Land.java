@@ -3,8 +3,10 @@ package ia.infrastructure;
 import java.awt.Point;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Land {
@@ -12,6 +14,8 @@ public class Land {
 	private Double length;
 	private Double height;
 	private Point p1, p2, p3;
+	
+	private Map<Point, InfraStructure> listInfra = new HashMap<Point, InfraStructure>();
 	
 	// Liste des gares
 	private Set<Station> listStation = new HashSet<Station>();
@@ -62,6 +66,10 @@ public class Land {
 	}
 
 	public void setListStation(Set<Station> listStation) {
+		for (Station s : listStation) {
+			listInfra.put(s.getPosition(), s);
+		}
+		
 		this.listStation = listStation;
 	}
 
@@ -70,6 +78,10 @@ public class Land {
 	}
 
 	public void setListGasStation(Set<GasStation> listGasStation) {
+		for (GasStation s : listGasStation) {
+			listInfra.put(s.getPosition(), s);
+		}
+		
 		this.listGasStation = listGasStation;
 	}
 
@@ -78,6 +90,9 @@ public class Land {
 	}
 
 	public void setListAirport(Set<Airport> listAirport) {
+		for (Airport s : listAirport) {
+			listInfra.put(s.getPosition(), s);
+		}
 		this.listAirport = listAirport;
 	}
 
@@ -136,5 +151,9 @@ public class Land {
 	
 	public double getYMin() {
 		return origin.getY();
+	}
+	
+	public boolean positionIsAvailable(Point position) {
+		return !listInfra.keySet().contains(position);
 	}
 }

@@ -20,21 +20,23 @@ public class Generator<E extends InfraStructure> {
 		return position;
 	}
 	
-	public Collection<E> generate(E e, double xmin, double ymin, double xmax, double ymax, int number) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+	public Collection<E> generate(E e, Land land, int number) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		Collection<E> apCollection = new HashSet<E>();
-		Map<Point, E> map = new HashMap<Point, E>();
-		
 		Point position;
 	
 		Class<? extends InfraStructure> clazz = e.getClass();
 		Constructor<? extends InfraStructure> constructor = clazz.getConstructor();
 	
 		do {
-			position = getRandomPosition(xmin, ymin, xmax, ymax);
-			E e1 = (E) constructor.newInstance();
-			e1.setPosition(position);
-			map.put(position, e1);
-		} while (map.size() < number);
+			position = getRandomPosition(land.getXMin(), land.getYMin(), land.getXMax(), land.getYMax());
+			
+			if (land.positionIsAvailable(position)) {
+				E e1 = (E) constructor.newInstance();
+				e1.setPosition(position);
+				apCollection.add(e1);
+			}
+		} while (apCollection.size() < number);
 		
 		return apCollection;
 	}
